@@ -1,0 +1,14 @@
+<div class='cs142-photo-header'>
+  <h1> Activity Feed </h1>
+  <div class='cs142-card' ng-repeat = "activity in activityFeed | orderBy:'-date_time' | limitTo:20 ">
+    <md-card class='cs142-card'>
+      <img class='cs142-card-image' ng-if='hasPhoto(activity)' ng-src='/images/{{activity.photo}}' </br>
+      <md-card-content class = 'cs142-photo-text'>
+        Username: {{activity.user}} </br>
+        Event: {{activity.event_type}} </br>
+        Date: {{activity.date_time}} </br>
+        <span ng-if=activity.comment> Comment Author: {{activity.comment}} </span> </br>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>

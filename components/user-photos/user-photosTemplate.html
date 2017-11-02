@@ -1,0 +1,33 @@
+<div>
+  <h1 class = 'cs142-photo-header'> {{fullName}} </h1>
+  <div ng-repeat = "object in fileNameList | orderBy: ['-likes','-date_time']">
+    <md-card class='cs142-card'>
+
+      <img ng-src = 'images/{{object.file_name}}' class='cs142-card-image' alt='{{object.file_name}}'>
+      <md-button ng-if='hasDelOption(object.user_id)' ng-click='deletePhoto(object._id)'> Delete Photo </md-button>
+      <md-card-content>
+        <p class = 'cs142-photo-text'> Posted on: {{object.date_time}} </p>
+
+          <md-button ng-if="liked(object)" ng-click="likePhoto(object._id)"> {{likebutton}} </md-button>
+          <md-button ng-if="!liked(object)" ng-click="unlikePhoto(object._id)"> {{likebutton}} </md-button>
+
+
+        <div> Likes: {{numLikes}} </div>
+
+        <div ng-repeat = "comments in object.comments">
+          <p> <a href="#!/users/{{comments.user._id}}"> {{comments.user.first_name}} {{comments.user.last_name}}: </a> "{{comments.comment}}"
+            <br> on {{comments.date_time}}
+            <md-button ng-if='hasDelOption(comments.user._id)' ng-click='deleteComment(object._id, comments)'> Delete Comment </md-button>
+          </p>
+
+          </md-card-content>
+        </div>
+
+        <form ng-submit="newComment(object._id,comment)">
+          <input ng-model="comment"/>
+          <input type="submit" value="Add Comment" />
+        </form>
+
+      </md-card>
+    </div>
+</div>

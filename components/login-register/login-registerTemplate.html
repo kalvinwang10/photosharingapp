@@ -1,0 +1,32 @@
+<div>
+  <form ng-submit='login()'>
+  <h2 class = 'cs142-login-header'> Please enter your Username and Password </h2>
+    	<label>UserName: </label>
+    	<input ng-model="login_name" placeholder="Enter Username" required>
+    	<label>Password: </label>
+  	  <input type='password' ng-model="password" placeholder="Enter password" required>
+  		<input type="submit" id="submit" value="Login" />
+      <span ng-if="ifLoginFail"> Invalid Login. Please Try Again </span>
+	</form>
+
+  <form ng-submit='register()'>
+  <h2 class = 'cs142-login-header'> Register New User </h2>
+  <label>UserName: </label>
+  <input ng-model="reg_login_name" placeholder="Enter Username" required> <br>
+  <label>Password: </label>
+  <input type='password' ng-model="password" placeholder="Enter password" required> <br>
+  <label>Confirm Password: </label>
+  <input type='password' ng-model="repeat_password" placeholder="Enter password" required> <br>
+  <label>Firstname: </label>
+  <input ng-model="reg_first_name" placeholder="Enter Firstname" required> <br>
+  <label>Lastname: </label>
+  <input ng-model="reg_last_name" placeholder="Enter Lastname" required> <br>
+  <label>location: </label>
+  <input ng-model="reg_location" placeholder="Enter Location" required> <br>
+  <label>Description: </label>
+  <input ng-model="reg_description" placeholder="Enter Description" required> <br>
+  <label>Occupation: </label>
+  <input ng-model="reg_occupation" placeholder="Enter Occupation" required> <br>
+  <input type="submit" id="submit" value="Register Me!" />
+</form>
+</div>

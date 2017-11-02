@@ -1,0 +1,24 @@
+<div>
+  <h1 class = 'cs142-photo-header'> {{fullName}} </h1>
+  <div ng-repeat = "object in fileNameList">
+    <div ng-show = 'object._id === photoId'>
+      <md-card class='cs142-card'>
+
+        <img ng-src = 'images/{{object.file_name}}' class='cs142-card-image' alt='{{object.file_name}}'>
+        <md-card-content>
+          <p class = 'cs142-photo-text'> Posted on: {{object.date_time}} </p>
+
+          <div ng-repeat = "comments in object.comments">
+            <p> <a href="#!/users/{{comments.user._id}}"> {{comments.user.first_name}} {{comments.user.last_name}}: </a> "{{comments.comment}}"
+              <br> on {{comments.date_time}} </p>
+            </md-card-content>
+          </div>
+
+          <button ng-show = '$index !== 0'><a href="#!/advanced/photos/{{userId}}/{{photoIdList[$index-1]}}">Prev Photo</a></button>
+          <button ng-show = '$index !== photoIdList.length-1'><a href="#!/advanced/photos/{{userId}}/{{photoIdList[$index+1]}}">Next Photo</a></button>
+
+
+        </md-card>
+      </div>
+    </div>
+</div>

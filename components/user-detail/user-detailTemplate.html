@@ -1,0 +1,16 @@
+<div class='cs142-details'>
+	<h1 class='cs142-details-heading'>{{firstName}} {{lastName}}</h1>
+  <p class='cs142-details-list'> Occupation: {{occupation}}
+  </br> Location: {{location}}
+	</br> Description: {{description}}
+  </br> User ID: {{userId}} </p>
+
+  <button ng-show='option === true'>
+		<a href="#!/advanced/photos/{{userId}}/{{fileNameList[0]._id}}" class='cs142-details-button'> View Photos </a>
+	</button>
+
+	<button ng-show='option === false'>
+		<a href="#!/photos/{{userId}}" class='cs142-details-button'> View Photos </a>
+	</button>
+
+</div>
